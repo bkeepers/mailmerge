@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'csv'
+require 'dotenv'
+require 'pony'
+require_relative 'msg'
+require_relative 'email'
+
+Dotenv.load
+
+csv_file = ENV['CSV'] || 'test.csv'
+template_file = ENV['TEMPLATE'] || 'test.txt'
+template = File.read(template_file)
+
+CSV.foreach(csv_file, :headers => :first_row) do |row|
+  msg = Msg.new(row, template)
+  Email.new(msg).dispatch
+end
