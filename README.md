@@ -58,10 +58,10 @@ CSV=test.csv
 TEMPLATE=test.txt
 ```
 
-Set `TEST=1` to view a preview of the emails without actually sending them.
+Set `PREVIEW=1` to view a preview of the emails without actually sending them.
 
 ```
-TEST=1 CSV=foo.csv TEMPLATE=bar.txt ./mailmerge
+PREVIEW=1 CSV=foo.csv TEMPLATE=bar.txt ./mailmerge
 ```
 
 ### Email Template

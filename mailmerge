@@ -12,11 +12,11 @@ csv_file = ENV['CSV'] || 'test.csv'
 template_file = ENV['TEMPLATE'] || 'test.txt'
 template = File.read(template_file)
 
-Pony.override_options = { :via => :test } if ENV['TEST']
+Pony.override_options = { :via => :test } if ENV['PREVIEW']
 
 CSV.foreach(csv_file, :headers => :first_row) do |row|
   msg = Msg.new(row, template)
   Email.new(msg).dispatch
 end
 
-puts Mail::TestMailer.deliveries if ENV['TEST']
+puts Mail::TestMailer.deliveries if ENV['PREVIEW']
