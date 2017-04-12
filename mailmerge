@@ -3,8 +3,8 @@
 require 'csv'
 require 'dotenv'
 require 'pony'
-require_relative 'msg'
-require_relative 'email'
+require_relative 'lib/msg'
+require_relative 'lib/email'
 
 Dotenv.load
 
