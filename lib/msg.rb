@@ -3,7 +3,7 @@ class Msg
   def initialize(csv_row, contents)
     @csv_row = csv_row
     @subject, *lines = contents.split("\n")
-    @template = lines.join("\n")
+    @template = lines.join("\n").strip
   end
 
   def email
